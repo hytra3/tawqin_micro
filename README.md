@@ -18,7 +18,6 @@ This microsite is designed for indigenous and oral-language communities, particu
 Hosted via GitHub Pages at:
 `https://hytra3.github.io/tawqin_micro`
 
-Or with custom domain: `community.tawq.in`
 
 ## Planned Variants
 
@@ -41,4 +40,4 @@ Or with custom domain: `community.tawq.in`
 
 ## Author
 
-Marty — linguist and information scientist documenting Jibbali/Hakli (Modern South Arabian), Dhofar, Oman.
+marty — dhofar, oman
