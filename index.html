@@ -59,6 +59,122 @@
     font-family: 'Amiri', serif;
   }
 
+  /* ══ REAL STORY SECTION ══ */
+  .real-story {
+    background: linear-gradient(160deg, #1a1208 0%, #2d1f0e 50%, #1a1208 100%);
+    color: var(--sand);
+    position: relative;
+    overflow: hidden;
+    padding: 5rem 2rem 6rem;
+  }
+  .real-story::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse at 15% 30%, rgba(200,137,58,0.12) 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 70%, rgba(160,68,42,0.10) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .real-story .section-label { color: var(--gold); }
+  .real-story .section-label::before { background: var(--gold); }
+  .real-story h2 { color: var(--sand); }
+  .real-story h2 em { color: var(--gold); }
+  .real-story .divider { background: linear-gradient(to right, var(--gold), transparent); }
+
+  .story-body p {
+    color: #d4c4a8;
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    line-height: 1.9;
+    margin-bottom: 1rem;
+  }
+  .story-body strong { color: var(--gold); font-weight: 600; }
+
+  /* YouTube Short embed — portrait ratio */
+  .story-video-wrap { margin: 2rem 0; }
+  .story-video-label {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 0.75rem;
+  }
+  html[lang="ar"] .story-video-label { letter-spacing: 0; font-family: 'Amiri', serif; font-size: 0.95rem; }
+  .yt-short-frame {
+    position: relative;
+    width: 100%;
+    max-width: 340px;
+    aspect-ratio: 9/16;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(200,137,58,0.2);
+    background: #000;
+  }
+  .yt-short-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* The moment — image + text */
+  .story-moment {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin: 3rem 0 2rem;
+  }
+  @media (max-width: 640px) {
+    .story-moment { grid-template-columns: 1fr; gap: 2rem; }
+    .yt-short-frame { max-width: 280px; }
+  }
+  .story-moment-image img {
+    width: 100%;
+    max-width: 280px;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(200,137,58,0.25);
+    display: block;
+  }
+  .story-moment-caption {
+    font-size: 0.78rem;
+    color: var(--gold);
+    opacity: 0.7;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 0.75rem;
+  }
+  html[lang="ar"] .story-moment-caption { letter-spacing: 0; font-family: 'Amiri', serif; font-size: 0.9rem; }
+
+  .story-moment-text p {
+    color: #d4c4a8;
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    line-height: 1.85;
+    margin-bottom: 1rem;
+  }
+  .story-moment-text em { color: var(--gold); font-style: italic; }
+  .story-pull {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.3rem, 3vw, 1.7rem) !important;
+    color: var(--sand) !important;
+    line-height: 1.4 !important;
+    margin-bottom: 1.2rem !important;
+  }
+  html[lang="ar"] .story-pull { font-family: 'Amiri', serif !important; font-size: clamp(1.4rem, 3vw, 1.8rem) !important; }
+
+  .story-close {
+    border-top: 1px solid rgba(200,137,58,0.2);
+    padding-top: 2rem;
+    margin-top: 1rem;
+  }
+  .story-close p {
+    color: #d4c4a8;
+    font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+    line-height: 1.8;
+  }
+  .story-close strong { color: var(--gold); }
+
   /* ── GRAIN ── */
   body::before {
     content: '';
@@ -768,6 +884,97 @@
 
 
 <!-- ══════════════════════════════════════════
+     REAL STORY — RAMADAN KITCHEN
+═══════════════════════════════════════════ -->
+<section class="real-story">
+  <div class="inner real-story-inner">
+
+    <!-- Section label -->
+    <div class="en-text">
+      <div class="section-label fade-up">A Real Moment</div>
+      <h2 class="fade-up">Three women.<br>Three languages.<br><em>One kitchen.</em></h2>
+      <div class="divider fade-up"></div>
+    </div>
+    <div class="ar-text" style="display:none;">
+      <div class="section-label fade-up">لحظة حقيقية</div>
+      <h2 class="fade-up">ثلاث نساء.<br>ثلاث لغات.<br><em>مطبخ واحد.</em></h2>
+      <div class="divider fade-up"></div>
+    </div>
+
+    <!-- Story text -->
+    <div class="story-body fade-up en-text">
+      <p>It was Ramadan. The kitchen smelled incredible.</p>
+      <p>Three women had just finished cooking together — one from Oman, one from the Philippines, one from Myanmar. The food was delicious. The communication had been… a challenge.</p>
+      <p>So they pointed a camera at the food. The Omani woman described each dish in <strong>Hakli</strong> — a language spoken by fewer than 7,000 people in the mountains of southern Arabia, with almost no digital presence anywhere on earth.</p>
+    </div>
+    <div class="story-body fade-up ar-text" style="display:none;">
+      <p>كان رمضان. كانت رائحة المطبخ رائعة.</p>
+      <p>أنهت ثلاث نساء الطهي معاً — واحدة من عُمان، وأخرى من الفلبين، وثالثة من ميانمار. كان الطعام لذيذاً. والتواصل كان… تحدياً.</p>
+      <p>فوجّهن الكاميرا نحو الطعام. وصفت المرأة العُمانية كل طبق بلغة <strong>الحكلي</strong> — لغة يتحدثها أقل من 7000 شخص في جبال جنوب الجزيرة العربية، وتكاد تغيب عن الفضاء الرقمي.</p>
+    </div>
+
+    <!-- YouTube Short embed -->
+    <div class="story-video-wrap fade-up">
+      <div class="story-video-label en-text">↓ The original video — Hakli food names, spoken aloud</div>
+      <div class="story-video-label ar-text" style="display:none;">↓ الفيديو الأصلي — أسماء الأطعمة بالحكلي، منطوقة بصوت عالٍ</div>
+      <div class="yt-short-frame">
+        <iframe
+          src="https://www.youtube.com/embed/g7P8875Tk2Y"
+          title="Hakli food names — Ramadan kitchen"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- Bridge text -->
+    <div class="story-body fade-up en-text" style="margin-top:2.5rem;">
+      <p>They uploaded that video to YouTube. Then used tawq.in to add Arabic narration — segment by segment, on a phone. That narration became subtitles. Then Google Translate turned those subtitles into Burmese.</p>
+    </div>
+    <div class="story-body fade-up ar-text" style="display:none;">
+      <p>رفعن الفيديو على يوتيوب. ثم استخدمن tawq.in لإضافة تعليق صوتي بالعربية — مقطعاً تلو الآخر، على الهاتف. أصبح ذلك التعليق ترجمة نصية. ثم حوّل Google Translate تلك الترجمة إلى البورمية.</p>
+    </div>
+
+    <!-- The moment — image + caption side by side on wide screens -->
+    <div class="story-moment fade-up">
+      <div class="story-moment-image">
+        <img src="ramadan-moment.png" alt="Phone screen showing lemons and chilies with Burmese subtitles generated via tawq.in" />
+        <div class="story-moment-caption en-text">Burmese subtitles — generated from Hakli audio via tawq.in</div>
+        <div class="story-moment-caption ar-text" style="display:none;">ترجمة بورمية — مُنشأة من صوت حكلي عبر tawq.in</div>
+      </div>
+      <div class="story-moment-text">
+        <div class="en-text">
+          <p class="story-pull">The woman from Myanmar leaned toward the screen.</p>
+          <p>She was reading her language. Hearing Hakli. Watching the food she had just helped cook.</p>
+          <p><em>She was beaming.</em></p>
+          <p style="margin-top:1.5rem; font-size:0.95rem; opacity:0.8;">No developers. No studio. No technical expertise. Just three women, a phone, and a tool that got out of the way.</p>
+        </div>
+        <div class="ar-text" style="display:none;">
+          <p class="story-pull">انحنت المرأة من ميانمار نحو الشاشة.</p>
+          <p>كانت تقرأ لغتها. تسمع الحكلي. وترى الطعام الذي ساعدت في طهيه للتو.</p>
+          <p><em>كان وجهها مضيئاً بالبهجة.</em></p>
+          <p style="margin-top:1.5rem; font-size:0.95rem; opacity:0.8;">لا مطوّرون. لا استوديو. لا خبرة تقنية. فقط ثلاث نساء وهاتف وأداة ابتعدت عن الطريق.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Closing line -->
+    <div class="story-close fade-up">
+      <div class="en-text">
+        <p>tawq.in works like this for any language. <strong>If you can speak, you can use it.</strong></p>
+      </div>
+      <div class="ar-text" style="display:none;">
+        <p>tawq.in يعمل هكذا مع أي لغة. <strong>إن كنت تتكلم، تستطيع استخدامه.</strong></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
      THE MOMENT
 ═══════════════════════════════════════════ -->
 <section class="moment">
@@ -1004,6 +1211,7 @@
 
     <div class="lang-cloud fade-up">
       <span class="lang-pill featured">Hakli / حكلي</span>
+      <span class="lang-pill">Burmese / မြန်မာဘာသာ</span>
       <span class="lang-pill">Spanish / الإسبانية</span>
       <span class="lang-pill">Amazigh / الأمازيغية</span>
       <span class="lang-pill">Bangla / البنغالية</span>
