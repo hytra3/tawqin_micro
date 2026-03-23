@@ -51,7 +51,7 @@
   html[lang="ar"] .step-content h3 {
     font-family: 'Amiri', serif;
   }
-  html[lang="ar"] .hero-wordmark,
+  html[lang="ar"] .hero-tagline,
   html[lang="ar"] .section-label,
   html[lang="ar"] .lang-pill,
   html[lang="ar"] .btn-primary,
@@ -196,8 +196,8 @@
     100% { transform: scale(1.8); opacity: 0; }
   }
   @keyframes waveform {
-    0%, 100% { height: 8px; }
-    50%       { height: 28px; }
+    0%, 100% { transform: scaleY(0.25); }
+    50%       { transform: scaleY(1); }
   }
   @keyframes float {
     0%, 100% { transform: translateY(0px); }
@@ -335,14 +335,36 @@
     opacity: 0.08;
   }
 
-  .hero-wordmark {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1rem, 3vw, 1.4rem);
-    letter-spacing: 0.3em;
-    color: var(--ochre);
-    text-transform: uppercase;
+  .hero-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
     margin-bottom: 2rem;
     animation: fadeUp 1s ease 0.1s both;
+  }
+  .hero-logo-img {
+    width: clamp(180px, 35vw, 280px);
+    height: auto;
+  }
+  .hero-tagline {
+    font-family: 'Lora', Georgia, serif;
+    font-size: clamp(0.85rem, 2vw, 1.05rem);
+    font-style: italic;
+    color: var(--ochre);
+    letter-spacing: 0.08em;
+    opacity: 0.9;
+  }
+  .hero-tagline sup {
+    font-size: 0.6em;
+    vertical-align: super;
+    font-style: normal;
+    letter-spacing: 0;
+  }
+  html[lang="ar"] .hero-tagline {
+    font-family: "Amiri", serif;
+    font-size: clamp(1rem, 2.2vw, 1.2rem);
+    letter-spacing: 0;
   }
 
   .hero-headline {
@@ -496,6 +518,49 @@
   .problem .section-label { color: var(--gold); }
   .problem .section-label::before { background: var(--gold); }
 
+  /* ── SALMA BLOCK ── */
+  .salma-block {
+    margin: 2.5rem 0;
+    padding: 2rem 2rem 2rem 2.5rem;
+    border-left: 3px solid var(--gold);
+    background: rgba(255,255,255,0.03);
+    border-radius: 0 8px 8px 0;
+  }
+  html[lang="ar"] .salma-block {
+    border-left: none;
+    border-right: 3px solid var(--gold);
+    border-radius: 8px 0 0 8px;
+    padding: 2rem 2.5rem 2rem 2rem;
+  }
+  .salma-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.3rem, 3vw, 1.7rem);
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 1rem;
+    letter-spacing: 0.04em;
+  }
+  html[lang="ar"] .salma-name {
+    font-family: 'Amiri', serif;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    letter-spacing: 0;
+  }
+  .salma-story {
+    font-size: clamp(1rem, 2.2vw, 1.15rem) !important;
+    color: #c8b99a !important;
+    line-height: 1.85 !important;
+    margin-bottom: 1rem !important;
+  }
+  .salma-story em { color: var(--gold); font-style: italic; }
+  .salma-question {
+    font-size: clamp(1rem, 2.2vw, 1.15rem) !important;
+    color: var(--sand) !important;
+    font-style: italic;
+    line-height: 1.7 !important;
+    margin: 0 !important;
+    opacity: 0.9;
+  }
+
   .quote-block {
     margin: 2.5rem 0;
     padding: 1.8rem 2rem;
@@ -576,17 +641,19 @@
   .waveform { display: flex; align-items: center; gap: 3px; flex: 1; }
   .waveform span {
     display: block;
-    width: 3px; height: 8px;
+    width: 3px; height: 28px;
     background: rgba(255,255,255,0.7);
     border-radius: 2px;
+    transform-origin: bottom;
+    will-change: transform;
     animation: waveform 0.8s ease-in-out infinite;
   }
   .waveform span:nth-child(2) { animation-delay: 0.1s; }
-  .waveform span:nth-child(3) { animation-delay: 0.2s; height: 20px; }
-  .waveform span:nth-child(4) { animation-delay: 0.15s; height: 14px; }
+  .waveform span:nth-child(3) { animation-delay: 0.2s; }
+  .waveform span:nth-child(4) { animation-delay: 0.15s; }
   .waveform span:nth-child(5) { animation-delay: 0.3s; }
-  .waveform span:nth-child(6) { animation-delay: 0.05s; height: 18px; }
-  .waveform span:nth-child(7) { animation-delay: 0.25s; height: 12px; }
+  .waveform span:nth-child(6) { animation-delay: 0.05s; }
+  .waveform span:nth-child(7) { animation-delay: 0.25s; }
   .waveform span:nth-child(8) { animation-delay: 0.35s; }
 
   /* ── STEPS ── */
@@ -784,7 +851,11 @@
     <button class="lang-btn" id="btn-ar" onclick="setLang('ar')" aria-label="Switch to Arabic">عربي</button><!-- [TRANSLATE: Arabic button label — keep as-is] -->
   </div>
 
-  <div class="hero-wordmark">tawq.in &nbsp;·&nbsp; <span class="ar-text" style="display:none;">طوق</span><span class="en-text">طوق</span></div>
+  <div class="hero-logo">
+    <img src="tawqin-logo.svg" alt="tawq.in" class="hero-logo-img" />
+    <div class="hero-tagline en-text">say it where you mean it<sup>™</sup></div>
+    <div class="hero-tagline ar-text" style="display:none;">قُلها حيث تعنيها<sup>™</sup></div>
+  </div>
 
   <!-- EN headline -->
   <h1 class="hero-headline en-text">
@@ -843,12 +914,13 @@
         Your language lives in voices, in stories told around fires and at kitchen tables.
         Not in subtitles. Not in captions written by strangers.
       </p>
-      <div class="quote-block fade-up">
-        <p>"What if the elders could explain things in our own words — and everyone could hear them?"</p>
-        <div class="quote-source">— The question tawq.in was built to answer</div>
+      <div class="salma-block fade-up">
+        <div class="salma-name">Salma</div>
+        <p class="salma-story">A Hakli mother and grandmother. Ten children raised. She has never written her name — her language has no written form. She is not illiterate. She is <em>non-literate</em>. Her grandchildren learn nursery rhymes in English. They hear her sing — but the words mean nothing to them.</p>
+        <p class="salma-question">Can something bridge that distance?</p>
       </div>
       <p class="fade-up">
-        tawq (طوق) means <em>voice</em> in Arabic. This platform gives the voice back — to you, in your language, told your way.
+        tawq.in was built to answer that question — giving the voice back to you, in your language, told your way.
       </p>
     </div>
 
@@ -867,15 +939,13 @@
       <p class="fade-up">
         لغتنا تعيش في الأصوات، في الحكايات التي تُروى حول النار وعلى موائد البيوت. ليست في ترجمات. ليست في تعليقات كتبها غرباء.
       </p>
-      <div class="quote-block fade-up">
-        <!-- [REVIEW: "ماذا لو استطاع الأجداد شرح الأشياء بكلماتنا — ويسمعهم الجميع؟"] -->
-        <p>«ماذا لو استطاع الأجداد شرح الأشياء بكلماتنا — ويسمعهم الجميع؟»</p>
-        <!-- [REVIEW: "— السؤال الذي بُني tawq.in ليجيب عنه"] -->
-        <div class="quote-source">— السؤال الذي بُني tawq.in ليجيب عنه</div>
+      <div class="salma-block fade-up">
+        <div class="salma-name">سلمى</div>
+        <p class="salma-story">أمٌّ وجدةٌ حكليّة. ربّت عشرة أبناء. لم تكتب اسمها قط — لغتها لا شكل مكتوب لها. هي ليست أميّة. هي <em>شفهية</em>. يتعلم أحفادها أغاني الأطفال بالإنجليزية. يسمعون صوتها — لكن الكلمات لا تعني لهم شيئاً.</p>
+        <p class="salma-question">هل ثمة ما يجسر تلك المسافة؟</p>
       </div>
-      <!-- [REVIEW: "tawq (طوق) تعني الصوت بالعربية. هذه المنصة تُعيد الصوت إليك — بلغتك، بطريقتك."] -->
       <p class="fade-up">
-        tawq (طوق) تعني الصوت بالعربية. هذه المنصة تُعيد الصوت إليك — بلغتك، بطريقتك.
+        tawq.in بُني ليجيب على هذا السؤال — يُعيد الصوت إليك، بلغتك، بطريقتك.
       </p>
     </div>
 
@@ -905,7 +975,7 @@
     <div class="story-body fade-up en-text">
       <p>It was Ramadan. The kitchen smelled incredible.</p>
       <p>Three women had just finished cooking together — one from Oman, one from the Philippines, one from Myanmar. The food was delicious. The communication had been… a challenge.</p>
-      <p>So they pointed a camera at the food. The Omani woman described each dish in <strong>Hakli</strong> — a language spoken by fewer than 7,000 people in the mountains of southern Arabia, with almost no digital presence anywhere on earth.</p>
+      <p>So they pointed a camera at the food. The Omani woman described each dish in <strong>Hakli</strong> — a language spoken in the mountains of southern Arabia, with almost no digital presence anywhere on earth.</p>
     </div>
     <div class="story-body fade-up ar-text" style="display:none;">
       <p>كان رمضان. كانت رائحة المطبخ رائعة.</p>
